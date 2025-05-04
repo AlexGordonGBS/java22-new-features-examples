@@ -8,7 +8,7 @@ import java.util.function.BiConsumer;
 
 public class BiConsumerExample {
 
-    public static void nameAndActivitie()  {
+    public static void nameAndActivities()  {
         BiConsumer<String, List<String>> biConsumer = (name, activities) -> System.out.println(name + " : " + activities);
         List<Student> studentList = StudentDataBase.getAllStudents();
         studentList.forEach(student -> biConsumer.accept(student.getName(), student.getActivities()));
@@ -33,7 +33,7 @@ public class BiConsumerExample {
         };
         multiply.andThen(devide).andThen(substruct).accept(10,5);
 
-        nameAndActivitie();
+        nameAndActivities();
 
 
 
