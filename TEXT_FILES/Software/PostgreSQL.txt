@@ -1,0 +1,34 @@
+install without admin rights:
+https://stackoverflow.com/questions/26441873/starting-postgresql-and-pgadmin-in-windows-without-installation
+
+Using Windows PowerShell...
+
+cd to the folder - the bin of your Postgre installation:
+C:\developer\tools\postgre\pgsql\bin
+
+init the DB:
+./initdb -D c:\Users\gordona\pgdata -U postgres -W -E UTF8 -A scram-sha-256
+superuser name: postgres
+password for the super user: alex
+
+To start Postgres:
+./pg_ctl -D c:\Users\gordona\pgdata start
+
+To stop Postgres:
+./pg_ctl -D c:\Users\gordona\pgdata stop
+
+When the server started --> go to the folder:
+C:\developer\tools\postgre\pgsql\pgAdmin 4\bin
+and start the program:
+pgAdmin4.exe = admin tool - browser based
+I will have to create a server, point to your LOCAL server running, use your superuser for now
+and its password - you created in the init step above.
+
+Then go to Query Runner tab:
+type this SQL
+select * FROM pg_class
+...and run it.
+You are using PostreSQL locally!
+
+
+post 5432 - Postgre is listening on this port

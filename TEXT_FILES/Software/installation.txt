@@ -1,0 +1,13 @@
+SOFTWARE
+curl
+
+homebrew:
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+Atom
+brew cask install atom
+
+
+PCF CLI:
+    brew tap cloudfoundry/tap
+    brew install cf-cli

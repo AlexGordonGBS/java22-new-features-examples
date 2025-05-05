@@ -1,0 +1,15 @@
+*-GitHub access
+
+-to setup Software
+-node.js
+-REACT
+-Intellij plugins
+    -REACT
+    -ANGULAR
+    -KUBERNETES
+
+to Learn
+-REACT - scrimba
+-KUBERNETES - book 
+-openShift - Amazon class
+

@@ -1,0 +1,109 @@
+OMG another deprecation!!!
+
+Red Hat OpenShift Local - that is the final (??) product for now - it replaced the crc!!!
+download from here:
+https://console.redhat.com/openshift/create/local
+download both:
+OpenShift Local package
+pull secret
+
+Then run the package bby double-click in your "Download" directory.
+Then follow guided installation steps.
+
+Use the 'oc' command line interface:
+  $ eval $(crc oc-env)
+  $ oc login -u developer https://api.crc.testing:6443
+SVUSLP01675:~ aleksandr.gordon$ 
+SVUSLP01675:~ aleksandr.gordon$ 
+SVUSLP01675:~ aleksandr.gordon$ oc
+OpenShift Client
+
+This client helps you develop, build, deploy, and run your applications on any
+OpenShift or Kubernetes cluster. It also includes the administrative
+commands for managing a cluster under the 'adm' subcommand.
+
+To familiarize yourself with OpenShift, login to your cluster and try creating a sample application:
+
+    oc login mycluster.mycompany.com
+    oc new-project my-example
+    oc new-app django-psql-example
+    oc logs -f bc/django-psql-example
+
+To see what has been created, run:
+
+    oc status
+
+and get a command shell inside one of the created containers with:
+
+    oc rsh dc/postgresql
+
+To see the list of available toolchains for building applications, run:
+
+    oc new-app -L
+
+Since OpenShift runs on top of Kubernetes, your favorite kubectl commands are also present in oc,
+allowing you to quickly switch between development and debugging. You can also run kubectl directly
+against any OpenShift cluster using the kubeconfig file created by 'oc login'.
+
+For more on OpenShift, see the documentation at https://docs.openshift.com.
+
+To see the full list of commands supported, run 'oc --help'.
+
+/////////////////////////////////////////////////////////
+web console:
+https://console-openshift-console.apps-crc.testing
+/////////////////////////////////////////////////////////
+
+oc - OpenShift client
+~similar to kubectl...
+
+#login over oc:
+oc login --username=developer --password=developer --server=localhost:6443 --insecure-skip-tls-verify=true
+oc login --username=kubeadmin --password=WG9H9-GQHV9-Pqvtn-aACn5 --server=localhost:6443 --insecure-skip-tls-verify=true
+
+
+<Token> - valid for 24 h 
+oc whoami -t
+sha256~7g27yPjKiscbGUlaDFx4bSKg3eatJsSImY7AVDIw7E8
+
+# this does NOT work!!!!!
+8443 - OLD port!!!!!
+we must use a new defauklt port = 6443!!!!!
+
+OLD:
+curl -k https://localhost:8443/oapi/v1/users \
+-H "Authorization: Bearer sha256~7g27yPjKiscbGUlaDFx4bSKg3eatJsSImY7AVDIw7E8"
+
+NEW: wrong path ==> 404
+curl -k https://localhost:6443/oapi/v1/users \
+-H "Authorization: Bearer sha256~7g27yPjKiscbGUlaDFx4bSKg3eatJsSImY7AVDIw7E8"
+
+THE FOLLOWING WORKS:
+||||||||||||||||||||||||
+TO GET ALL PATHS:
+curl -k https://api.crc.testing:6443 \
+-H "Authorization: Bearer sha256~7g27yPjKiscbGUlaDFx4bSKg3eatJsSImY7AVDIw7E8"
+
+TO GET ALL API(s) with version 1:
+curl -k https://api.crc.testing:6443/api/v1 \
+-H "Authorization: Bearer sha256~7g27yPjKiscbGUlaDFx4bSKg3eatJsSImY7AVDIw7E8"
+
+
+Users:
+===========
+Log in as administrator:
+  Username: kubeadmin
+  Password: WG9H9-GQHV9-Pqvtn-aACn5
+
+Log in as user:
+  Username: developer
+  Password: developer
+
+
+CREATE NEW PROJECT:
+oc new-project user-getting-started --display-name="Getting Started with OpenShift"
+
+new user admin with access everywhere:
+oc create clusterrolebinding registry-controller --clusterrole=cluster-admin --user=admin
+
+

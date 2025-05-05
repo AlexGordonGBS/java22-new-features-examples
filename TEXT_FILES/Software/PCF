@@ -1,0 +1,22 @@
+Magenic PCF server:
+cf login -a api.cf.magenic.net  -o newyork -s Playground -u alexgo --skip-ssl-validation --sso
+
+https://ejb-application.cf.magenic.net/
+
+
+LOCAL PCF DEV => does not work well - needs 14GB of RAM!!!!
+- install cf_CLI
+- install additional plugin:
+cf install-plugin cfdev
+-download huge file with PCF DEV:
+https://network.pivotal.io/
+
+to start:
+cf dev start -f /Users/alexgo/Downloads/pcfdev-v1.2.0-darwin.tgz
+
+to end:
+cf dev stop
+
+
+
+/usr/local/bin/gradle

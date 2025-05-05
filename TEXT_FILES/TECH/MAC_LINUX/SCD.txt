@@ -1,0 +1,35 @@
+type2 
+ID  val     from    to
+1   10      100     200
+2   20      200     210
+3   25      210     300     
+4   50      300     99999  - current
+5
+6
+7
+task= find the val on 155 date!!!
+select * from t1 where from <= 155 < to    ==> 10
+
+select * from t1 where from <= 30 < to    ==> null
+
+insert???
+
+
+sale event  itself ==> fact table
+FK1 ==> customer
+FK2 ==> vendor
+FK3 ==> item
+value - $$$ amount
+timestamp 
+
+
+
+
+SCD(s) type2 : 
+customer - name, addrss, account#
+vendor
+item 
+store
+
+
+

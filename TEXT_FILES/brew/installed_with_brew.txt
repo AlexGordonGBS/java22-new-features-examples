@@ -1,0 +1,32 @@
+HOMEBREW
+Installed with brew:
+
+Google Chrome
+brew —cask 
+
+Java11: 
+brew install openjdk@11
+
+Visual Studio Code (editor)
+brew install --cask visual-studio-code
+ 
+IntelliJ
+brew install --cask intellij-idea
+
+VirtualBox
+brew install --cask virtualbox
+
+Vagrant
+brew install --cask vagrant
+
+Postman
+brew install --cask postman
+
+SourceTree
+brew install --cask sourcetree
+
+Docker
+brew install --cask docker
+
+
+

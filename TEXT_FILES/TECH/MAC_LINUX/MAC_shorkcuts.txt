@@ -1,0 +1,1 @@
+cmd+shift+perid(.) ==> show hidden files in Finder

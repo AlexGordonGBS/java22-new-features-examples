@@ -1,0 +1,17 @@
+reactive thirst-quenching streams
+- reactive  programing
+-reactive systems
+-reactive streams - Java 9 Flowable API
+
+event driven system
+
+in reactive programming we ar dealing with streams of data -
+thus stream of events
+
+error event!! possible
+
+RX Java
+Timber library
+https://rxmarbles.com
+
+concurrency vs Pralle

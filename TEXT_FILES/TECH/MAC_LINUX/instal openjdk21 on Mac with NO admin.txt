@@ -1,0 +1,12 @@
+1) downloadJDK binary archive: openjdk-21.0.2_macos-x64_bin.tar.gz
+2) unzip inside my personal bin directory /Users/aleksandr.gordon/DEVELOPER/bin
+3) tar -xzf openjdk-21.0.2_macos-x64_bin.tar.gz -C .
+4) observe Java installed in this dir: /Users/aleksandr.gordon/DEVELOPER/bin/jdk-21.0.2.jdk
+4) setup env variables:
+export JAVA_HOME=/Users/aleksandr.gordon/DEVELOPER/bin/jdk-21.0.2.jdk
+export PATH=$PATH:$JAVA_HOME/Contents/Home/bin
+
+this did NOT work! ;-(
+    
+
+

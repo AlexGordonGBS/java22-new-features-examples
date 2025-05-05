@@ -1,0 +1,115 @@
+12-factors
+Codebase
+Dependences
+Config
+Backing Services
+Build, Release, Run
+Processes
+Port Binding
+Concurrency
+Disposability
+Dev/Prod Parity
+Logs
+Admin Processes
+TO INSTALL and LEARN
+
+xCode command line tools
+Use your personal Apple account
+
+Homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+install via homebrew:
+*JDK java 8
+brew cask install java8 - not available anymore!!!!!
+need manual installation
+
+
+*Gradle
+brew install gradle
+
+*Git - already installed
+brew install git
+
+Flowdock no need!!!
+brew cask install flowdock
+
+Postman
+brew cask install postman
+
+SourceTree
+brew cask install sourcetree
+
+textmate  USE ATOM instead!!!!
+brew cask install textmate
+
+
+NOT via homebrew:
+chrome
+*Docker
+Docker Desktop for Mac - installed from archive from the web
+using only command line for docker now
+deleted old old images and containers
+installing REDIS image…
+Kitematic - obsolete!!!!! - do not use it
+REDIS - added Docker image from DockerHub repo
+Redis from Docker image
+Kitematic - Docker GUI
+Intellij - community edition
+
+TO LEARN:
+Redis
+IntelliJ
+JWT
+
+LINUX
+
+remove dir:
+rm -fd dirName
+
+check the process holding the port:
+lsof -i :portNumber
+lsof -i tcp:portNumber
+lsof -i udp:portNumber
+lsof -i :80
+lsof -i :80 | grep LISTEN
+
+TCO????? tecknology presentation???
+
+Mac TODO list
+Connect to LAN
+Connect to printer
+Quick Books Pro
+converted to Mac OK
+MS office
+Picasa
+  PC version: 3.9141 (Build 259)
+  Mac versions:
+Investment excel file
+Copy data from PC
+Expose LANDrive from Mac
+Stop sharing LANDrive from PC
+Connect USB Hard Drive
+Facebook
+Java
+  JDK
+  Eclipse
+  STS
+TV to research!!!!
+Apple TV???  To research
+Backup solution- iCloud, IMerge, ????  iDrive picked and installed.
+Browsers: FireFox, Chrome
+Scan snap ix500 software for Mac
+iTunes and all music
+Russian keyboard привет федя
+SDK Linux tool set - installed
+Software to install:
+Java 9
+SDKMAN! - The Software Development Kit Manager
+Maven
+Spring Boot CLI
+XCode - IDE for iOS development in Swift.
+
+
+GitHub:
+GitHub	https://github.com/	alexgordongbs	S…G…123#

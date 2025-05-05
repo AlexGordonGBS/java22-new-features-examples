@@ -1,0 +1,138 @@
+MarkLogic LOCAL
+Version 10
+
+To install:
+https://developer.marklogic.com/products
+You must create an account with them - I used my Magenic email.
+I use Developer License.
+I had to override OS security to allow installation of the software by unnamed developer!!!
+
+In Mac system preferences:
+MarkLogic - to admin the server
+Use system pref to start/stop server
+Admin account:
+admin/admin
+The password for the wallet:
+wallet
+
+Example of using MArkLogic with curl:
+https://docs.marklogic.com/guide/rest-dev/intro
+my user is admin:admin
+1.
+Create a text file named one.xml with the following contents:
+
+<one>
+  <child>The noble Brutus has told Caesar was ambitious</child>
+</one>
+
+2.
+Create a text file named two.json with the following contents:
+
+{
+  "two": {
+    "child": "I come to bury Caesar, not to praise him."
+  }
+}
+
+Load docs to the datasbase:
+curl --anyauth --user admin:admin -X PUT -d@'./one.xml'     -H "Content-type: application/xml"     'http://localhost:8000/LATEST/documents?uri=/xml/one.xml'
+curl --anyauth --user admin:admin -X PUT -d@'./two.json'   -H "Content-type: application/json"   'http://localhost:8000/LATEST/documents?uri=/json/two.json'
+
+Query database by using query-console:
+curl --anyauth --user admin:admin     'http://localhost:8000/LATEST/search?q=caesar'
+
+The XML result:
+<search:response snippet-format="snippet" total="2" start="1" page-length="10" xmlns:search="http://marklogic.com/appservices/search">
+  <search:result index="1" uri="/xml/one.xml" path="fn:doc(&quot;/xml/one.xml&quot;)" score="2048" confidence="0.2831073" fitness="0.2357023" href="/v1/documents?uri=%2Fxml%2Fone.xml" mimetype="application/xml" format="xml">
+    <search:snippet>
+      <search:match path="fn:doc(&quot;/xml/one.xml&quot;)/one/child">The noble Brutus has told <search:highlight>Caesar</search:highlight> was ambitious</search:match>
+    </search:snippet>
+  </search:result>
+  <search:result index="2" uri="/json/two.json" path="fn:doc(&quot;/json/two.json&quot;)" score="2048" confidence="0.2831073" fitness="0.2357023" href="/v1/documents?uri=%2Fjson%2Ftwo.json" mimetype="application/json" format="json">
+    <search:snippet>
+      <search:match path="fn:doc(&quot;/json/two.json&quot;)/two/text(&quot;child&quot;)">I come to bury <search:highlight>Caesar</search:highlight>, not to praise him.</search:match>
+    </search:snippet>
+  </search:result>
+  <search:qtext>caesar</search:qtext>
+  <search:metrics>
+    <search:query-resolution-time>PT0.001867S</search:query-resolution-time>
+    <search:snippet-resolution-time>PT0.001126S</search:snippet-resolution-time>
+    <search:total-time>PT0.383355S</search:total-time>
+  </search:metrics>
+</search:response>
+
+search again - added header Accept: appl/json ---> JSON is generated!!!
+curl --anyauth --user admin:admin     -H "Accept: application/json"     'http://localhost:8000/LATEST/search?q=caesar'
+JSON:
+{"snippet-format":"snippet", "total":2, "start":1, "page-length":10, "results":[{"index":1, "uri":"/xml/one.xml", "path":"fn:doc(\"/xml/one.xml\")", "score":2048, "confidence":0.2831073, "fitness":0.2357023, "href":"/v1/documents?uri=%2Fxml%2Fone.xml", "mimetype":"application/xml", "format":"xml", "matches":[{"path":"fn:doc(\"/xml/one.xml\")/one/child", "match-text":["The noble Brutus has told ", {"highlight":"Caesar"}, " was ambitious"]}]}, {"index":2, "uri":"/json/two.json", "path":"fn:doc(\"/json/two.json\")", "score":2048, "confidence":0.2831073, "fitness":0.2357023, "href":"/v1/documents?uri=%2Fjson%2Ftwo.json", "mimetype":"application/json", "format":"json", "matches":[{"path":"fn:doc(\"/json/two.json\")/two/text(\"child\")", "match-text":["I come to bury ", {"highlight":"Caesar"}, ", not to praise him."]}]}], "qtext":"caesar", "metrics":{"query-resolution-time":"PT0.001949S", "snippet-resolution-time":"PT0.001064S", "total-time":"PT0.003905S"}}
+
+formatted json in online editor:
+https://jsonformatter.org/json-editor
+
+{
+  "snippet-format": "snippet",
+  "total": 2,
+  "start": 1,
+  "page-length": 10,
+  "results": [
+    {
+      "index": 1,
+      "uri": "/xml/one.xml",
+      "path": "fn:doc(\"/xml/one.xml\")",
+      "score": 2048,
+      "confidence": 0.2831073,
+      "fitness": 0.2357023,
+      "href": "/v1/documents?uri=%2Fxml%2Fone.xml",
+      "mimetype": "application/xml",
+      "format": "xml",
+      "matches": [
+        {
+          "path": "fn:doc(\"/xml/one.xml\")/one/child",
+          "match-text": [
+            "The noble Brutus has told ",
+            {
+              "highlight": "Caesar"
+            },
+            " was ambitious"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "uri": "/json/two.json",
+      "path": "fn:doc(\"/json/two.json\")",
+      "score": 2048,
+      "confidence": 0.2831073,
+      "fitness": 0.2357023,
+      "href": "/v1/documents?uri=%2Fjson%2Ftwo.json",
+      "mimetype": "application/json",
+      "format": "json",
+      "matches": [
+        {
+          "path": "fn:doc(\"/json/two.json\")/two/text(\"child\")",
+          "match-text": [
+            "I come to bury ",
+            {
+              "highlight": "Caesar"
+            },
+            ", not to praise him."
+          ]
+        }
+      ]
+    }
+  ],
+  "qtext": "caesar",
+  "metrics": {
+    "query-resolution-time": "PT0.001949S",
+    "snippet-resolution-time": "PT0.001064S",
+    "total-time": "PT0.003905S"
+  }
+}
+
+
+POSTMAN example
+===============
+PostMan collection:
+
+PostMan Environment:

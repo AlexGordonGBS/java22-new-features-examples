@@ -1,0 +1,4 @@
+# what is my IP address?
+ipconfig getifaddr en0
+
+
